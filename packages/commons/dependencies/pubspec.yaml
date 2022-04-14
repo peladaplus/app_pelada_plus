@@ -10,11 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mobx:
+  bloc: ^8.0.3
+  device_preview: ^1.0.0
+  dio: ^4.0.6
+  flutter_bloc: ^8.0.1
+  flutter_svg: ^1.0.3
+  lottie: ^1.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  bloc_test: ^9.0.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
