@@ -9,7 +9,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,11 +24,18 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+  Analize:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Analyze project source
         run: flutter analyze
 
+      - name: Access project
+        run: cd packages/features/group
+
       - name: Run tests
-        run: cd packages/features/group flutter test --coverage
+        run: flutter test --coverage
       - uses: codecov/codecov-action@v1
         with:
           file: packages/features/group/coverage/lcov.info
