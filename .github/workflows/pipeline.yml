@@ -24,10 +24,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-  Analize:
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Analyze project source
         run: flutter analyze
 
