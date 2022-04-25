@@ -14,6 +14,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget with BaseApp {
+  MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     super.registerRouters();
