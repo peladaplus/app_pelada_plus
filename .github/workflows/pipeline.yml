@@ -28,7 +28,7 @@ jobs:
         run: flutter analyze
 
       - name: Run tests
-        run: flutter test --coverage
+        run: cd packages/features/group flutter test --coverage
       - uses: codecov/codecov-action@v1
         with:
-          file: packages/features/coverage/lcov.info
+          file: packages/features/group/coverage/lcov.info
