@@ -1,0 +1,35 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Pipeline Flutter
+
+on:
+  pull_request:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze project source
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test --coverage
+      - uses: codecov/codecov-action@v1
+        with:
+          token: 'd1a918b0-7cfb-4220-b6a9-b63e3660d0de'
+          file: ./coverage/lcov.info
