@@ -1,10 +1,10 @@
+import 'package:app_pelada_plus/app/features/group/domain/entities/group.entity.dart';
+import 'package:app_pelada_plus/app/features/group/domain/exceptions/create_group.exception.dart';
+import 'package:app_pelada_plus/app/features/group/domain/repositories/group.repository.dart';
+import 'package:app_pelada_plus/app/features/group/domain/usecases/create_group.usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:faker_dart/faker_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:group/app/domain/entities/group.entity.dart';
-import 'package:group/app/domain/exceptions/create_group.exception.dart';
-import 'package:group/app/domain/repositories/group.repository.dart';
-import 'package:group/app/domain/usecases/create_group.usecase.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockGroupRepository extends Mock implements IGroupRepository {}
@@ -37,7 +37,7 @@ void main() {
     final result = await _useCase(_entity);
 
     expect(result, isA<Right>());
-    expect(result, Right('Group created successfully'));
+    expect(result, const Right('Group created successfully'));
   });
 
   test('Should return Left with GroupNotCreatedException', () async {

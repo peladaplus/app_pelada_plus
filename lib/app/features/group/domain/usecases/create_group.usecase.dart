@@ -18,7 +18,7 @@ class CreateGroupUseCase {
           message: 'Could not create group ${group.name.toUpperCase()}',
         ),
       ),
-      (r) => Right('Group created successfully'),
+      (r) => const Right('Group created successfully'),
     );
   }
 }

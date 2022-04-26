@@ -27,11 +27,8 @@ jobs:
       - name: Analyze project source
         run: flutter analyze
 
-      - name: Access project
-        run: cd packages/features/group
-
       - name: Run tests
         run: flutter test --coverage
       - uses: codecov/codecov-action@v1
         with:
-          file: packages/features/group/coverage/lcov.info
+          file: ./coverage/lcov.info
