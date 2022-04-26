@@ -31,4 +31,5 @@ jobs:
         run: flutter test --coverage
       - uses: codecov/codecov-action@v1
         with:
+          token: 'd1a918b0-7cfb-4220-b6a9-b63e3660d0de'
           file: ./coverage/lcov.info
