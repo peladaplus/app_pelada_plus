@@ -1,6 +1,5 @@
 name: app_pelada_plus
 description: A new Flutter project.
-publish_to: 'none'
 version: 1.0.0+1
 
 environment:
