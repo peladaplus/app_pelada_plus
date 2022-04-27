@@ -5,3 +5,9 @@ class GroupNotCreated extends CreateGroupException {
 
   GroupNotCreated({this.message});
 }
+
+class DataSourceException extends CreateGroupException {
+  final String? message;
+
+  DataSourceException({this.message});
+}
