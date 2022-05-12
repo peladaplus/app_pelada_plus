@@ -1,5 +1,10 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'group.entity.g.dart';
+
+@JsonSerializable()
 class GroupEntity {
-  GroupEntity({
+  const GroupEntity({
     this.id,
     required this.name,
     required this.image,
@@ -14,6 +19,11 @@ class GroupEntity {
   final String frequency;
   final GameType gameType;
   final bool selfEvaluation;
+
+  factory GroupEntity.fromJson(Map<String, dynamic> json) =>
+      _$GroupEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GroupEntityToJson(this);
 }
 
 enum GameType {

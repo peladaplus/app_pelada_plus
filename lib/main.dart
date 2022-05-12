@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget with BaseApp {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pelada+',
+      theme: ThemeData(fontFamily: 'Pilat Extended'),
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
       initialRoute: '/',
