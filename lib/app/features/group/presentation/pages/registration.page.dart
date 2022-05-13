@@ -1,4 +1,8 @@
+import 'package:app_pelada_plus/app/features/group/data/repositories/group.repository_impl.dart';
+import 'package:app_pelada_plus/app/features/group/data/sources/group.datasource.dart';
 import 'package:app_pelada_plus/app/features/group/domain/entities/group.entity.dart';
+import 'package:app_pelada_plus/app/features/group/domain/usecases/create_group.usecase.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +17,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
   late Frequency _frequency = Frequency.monthly;
   late GameType _gameType = GameType.soccer;
 
+  late bool _selfEvaluation = true;
+
   late bool mondayCheck = false;
   late bool tuesdayCheck = false;
   late bool wednesdayCheck = false;
@@ -21,8 +27,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   late bool saturdayCheck = false;
   late bool sundayCheck = false;
 
-  final TextEditingController _controllerGroup = TextEditingController();
+  final TextEditingController _controllerName = TextEditingController();
   final TextEditingController _controllerImage = TextEditingController();
+
+  final CreateGroupUseCase _useCase =
+      CreateGroupUseCase(GroupRepository(GroupDataSource(Dio())));
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +89,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 const SizedBox(height: 25),
                 TextFormField(
-                  controller: _controllerGroup,
+                  controller: _controllerName,
                   keyboardType: TextInputType.text,
                   autofocus: true,
                   cursorColor: Colors.deepOrange,
@@ -221,6 +230,73 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     color: Colors.black54,
                   ),
                 ),
+                RadioListTile(
+                  title: const Text('Futebol'),
+                  value: GameType.soccer,
+                  groupValue: _gameType,
+                  onChanged: (GameType? value) {
+                    setState(() {
+                      _gameType = value!;
+                    });
+                  },
+                ),
+                RadioListTile(
+                  title: const Text('Futsal'),
+                  value: GameType.indoorSoccer,
+                  groupValue: _gameType,
+                  onChanged: (GameType? value) {
+                    setState(() {
+                      _gameType = value!;
+                    });
+                  },
+                ),
+                RadioListTile(
+                  title: const Text('Society'),
+                  value: GameType.society,
+                  groupValue: _gameType,
+                  onChanged: (GameType? value) {
+                    setState(() {
+                      _gameType = value!;
+                    });
+                  },
+                ),
+                const SizedBox(height: 25),
+                SwitchListTile(
+                  title: const Text('Auto Avaliação'),
+                  value: _selfEvaluation,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _selfEvaluation = value;
+                    });
+                  },
+                ),
+                const SizedBox(height: 25),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _useCase(
+                        GroupEntity(
+                          name: _controllerName.text,
+                          image: _controllerImage.text,
+                          frequency: 'Weekly',
+                          gameType: _gameType,
+                          selfEvaluation: _selfEvaluation,
+                        ),
+                      ).then(
+                        (value) => ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              value.toString(),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    child: const Text('Cadastrar'),
+                  ),
+                ),
+                const SizedBox(height: 25),
               ],
             ),
           ),
