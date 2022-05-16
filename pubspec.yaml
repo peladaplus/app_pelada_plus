@@ -14,6 +14,7 @@ dependencies:
   dio: ^4.0.6
   dartz: ^0.10.1
   flutter_bloc: ^8.0.1
+  flutter_modular: ^5.0.2
   flutter_svg: ^1.0.3
   json_annotation: ^4.5.0
   lottie: ^1.2.2
@@ -49,20 +50,20 @@ flutter:
     # "family" key with the font family name, and a "fonts" key with a
     # list giving the asset and other descriptors for the font. For
     # example:
-  fonts:
-    - family: Pilat Extended
-      fonts:
-        - asset: assets/fonts/PilatExtended-Regular.ttf
-        - asset: assets/fonts/PilatExtended-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/PilatExtended-Black.ttf
-          weight: 900
-        - asset: assets/fonts/PilatExtended-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/PilatExtended-Light.ttf
-          weight: 200
-        - asset: assets/fonts/PilatExtended-DemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/PilatExtended-Heavy.ttf
-          weight: 800
+#  fonts:
+#    - family: Pilat Extended
+#      fonts:
+#        - asset: assets/fonts/PilatExtended-Regular.ttf
+#        - asset: assets/fonts/PilatExtended-Bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/PilatExtended-Black.ttf
+#          weight: 900
+#        - asset: assets/fonts/PilatExtended-Thin.ttf
+#          weight: 100
+#        - asset: assets/fonts/PilatExtended-Light.ttf
+#          weight: 200
+#        - asset: assets/fonts/PilatExtended-DemiBold.ttf
+#          weight: 600
+#        - asset: assets/fonts/PilatExtended-Heavy.ttf
+#          weight: 800
 
