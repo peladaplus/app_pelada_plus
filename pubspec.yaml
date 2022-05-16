@@ -16,6 +16,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_modular: ^5.0.2
   flutter_svg: ^1.0.3
+  google_fonts: ^2.3.2
   json_annotation: ^4.5.0
   lottie: ^1.2.2
 
