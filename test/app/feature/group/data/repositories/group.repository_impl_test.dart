@@ -1,7 +1,7 @@
+import 'package:app_pelada_plus/app/features/group/data/exceptions/datasource.exception.dart';
 import 'package:app_pelada_plus/app/features/group/data/repositories/group.repository_impl.dart';
 import 'package:app_pelada_plus/app/features/group/data/sources/group.datasource.dart';
 import 'package:app_pelada_plus/app/features/group/domain/entities/group.entity.dart';
-import 'package:app_pelada_plus/app/features/group/domain/exceptions/create_group.exception.dart';
 import 'package:app_pelada_plus/app/features/group/domain/repositories/group.repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:faker_dart/faker_dart.dart';
@@ -40,8 +40,11 @@ void main() {
   });
 
   test('Should return Left with DataSourceException', () async {
-    when(() => _dataSource.save(_entity))
-        .thenAnswer((_) async => Left(DataSourceException()));
+    when(() => _dataSource.save(_entity)).thenAnswer(
+      (_) async => Left(
+        RequestError(message: '', statusCode: 401),
+      ),
+    );
 
     final result = await _repository.save(_entity);
 
