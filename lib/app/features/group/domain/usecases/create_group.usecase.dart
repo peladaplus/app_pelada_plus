@@ -13,11 +13,8 @@ class CreateGroupUseCase {
     final result = await _repository.save(group);
 
     return result.fold(
-      (l) => Left(
-        GroupNotCreated(
-          message: 'Could not create group ${group.name.toUpperCase()}',
-        ),
-      ),
+      (l) => Left(GroupNotCreated(
+          message: 'Could not create group ${group.name.toUpperCase()}')),
       (r) => const Right('Group created successfully'),
     );
   }
