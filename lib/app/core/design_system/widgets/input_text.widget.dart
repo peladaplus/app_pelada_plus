@@ -26,7 +26,7 @@ class InputTextWidget extends StatelessWidget {
         cursorColor: TokenColors.kBlack2,
         keyboardType: TextInputType.name,
         onTap: onTap,
-        style: TextStyle(
+        style: const TextStyle(
           color: TokenColors.kGrey2,
           fontWeight: FontWeight.w600,
           fontSize: 20,
@@ -34,17 +34,17 @@ class InputTextWidget extends StatelessWidget {
         decoration: InputDecoration(
           focusColor: TokenColors.kBlack1,
           hintText: hint,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: TokenColors.kGrey2,
             fontWeight: FontWeight.w600,
             fontSize: 20,
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: TokenColors.kBlack2),
+            borderSide: const BorderSide(color: TokenColors.kBlack2),
             borderRadius: BorderRadius.circular(16),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: TokenColors.kBlack2),
+            borderSide: const BorderSide(color: TokenColors.kBlack2),
             borderRadius: BorderRadius.circular(16),
           ),
         ),

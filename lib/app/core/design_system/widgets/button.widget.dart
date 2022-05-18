@@ -18,7 +18,7 @@ class ButtonWidget extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 63,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -34,9 +34,9 @@ class ButtonWidget extends StatelessWidget {
         onPressed: action,
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: TokenColors.kWhite,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
         ),

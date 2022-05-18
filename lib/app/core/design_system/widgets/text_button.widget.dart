@@ -18,9 +18,9 @@ class TextButtonWidget extends StatelessWidget {
       onPressed: action,
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           color: TokenColors.kWhite,
-          fontWeight: FontWeight.w200,
+          fontWeight: FontWeight.w400,
           fontSize: 18,
         ),
       ),
