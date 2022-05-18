@@ -1,5 +1,6 @@
-import 'package:app_pelada_plus/app/core/design_system/tokens/paddings.token.dart';
 import 'package:flutter/material.dart';
+
+import '../tokens/paddings.token.dart';
 
 class ChoiceImageWidget extends StatelessWidget {
   const ChoiceImageWidget({
