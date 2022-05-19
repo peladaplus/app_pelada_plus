@@ -1,39 +1,74 @@
-import 'package:app_pelada_plus/app/core/design_system/tokens/colors.token.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class RegistrationGroupComponent extends StatelessWidget {
+import '../tokens/colors.token.dart';
+import '../tokens/paddings.token.dart';
+import '../widgets/animation.widget.dart';
+import '../widgets/button.widget.dart';
+import '../widgets/text.widget.dart';
+import '../widgets/text_button.widget.dart';
+
+class RegistrationGroupComponent extends StatefulWidget {
   const RegistrationGroupComponent({Key? key}) : super(key: key);
 
   @override
+  State<RegistrationGroupComponent> createState() =>
+      _RegistrationGroupComponentState();
+}
+
+class _RegistrationGroupComponentState
+    extends State<RegistrationGroupComponent> {
+  late bool isSelected = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: TokenColors.kBlack2,
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              'Dê um nome ao seu grupo',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                color: TokenColors.kWhite,
-                fontFamily: GoogleFonts.sourceSansPro().fontFamily,
-                fontSize: 36,
-                fontWeight: FontWeight.w600,
-              ),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        extendBody: true,
+        backgroundColor: TokenColors.kBlack2,
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(TokenPaddings.sm),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const SizedBox(height: 25),
+                    const TextWidget.title(text: 'Dê um nome ao seu grupo'),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: TokenPaddings.sm),
+                      child: const TextWidget.subtitle(
+                        text: 'Esse nome será utilizado '
+                            'para se referir ao seu grupo.',
+                      ),
+                    ),
+                  ],
+                ),
+                const AnimationWidget(),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: TokenPaddings.xs),
+                      child: ButtonWidget(
+                        text: 'Continuar',
+                        action: () {},
+                      ),
+                    ),
+                    TextButtonWidget(
+                      text: 'Voltar',
+                      action: () {},
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Text(
-              'Esse nome será utilizado para se referir ao seu grupo.',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                color: TokenColors.kGrey2,
-                fontFamily: GoogleFonts.sourceSansPro().fontFamily,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
