@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../tokens/colors.token.dart';
 import '../tokens/paddings.token.dart';
-import '../widgets/animation.widget.dart';
 import '../widgets/button.widget.dart';
+import '../widgets/choice_image.widget.dart';
 import '../widgets/text.widget.dart';
 import '../widgets/text_button.widget.dart';
 
@@ -50,7 +50,11 @@ class _RegistrationGroupComponentState
                     ),
                   ],
                 ),
-                const AnimationWidget(),
+                ChoiceImageWidget(
+                  image: 'soccer3',
+                  isSelected: true,
+                  action: () {},
+                ),
                 Column(
                   children: <Widget>[
                     Padding(

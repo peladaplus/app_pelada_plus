@@ -19,8 +19,8 @@ class ChoiceButton extends StatelessWidget {
     return GestureDetector(
       onTap: action,
       child: Container(
-        height: 50,
-        width: 150,
+        height: MediaQuery.of(context).size.height / 16,
+        width: MediaQuery.of(context).size.width / 2.8,
         decoration: BoxDecoration(
           gradient: isSelected ? TokenColors.gradient : null,
           color: isSelected ? null : TokenColors.kBlack1,

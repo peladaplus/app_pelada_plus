@@ -34,7 +34,7 @@ class ChoiceImageWidget extends StatelessWidget {
               filterQuality: FilterQuality.high,
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
-              height: 150,
+              height: MediaQuery.of(context).size.width / 2.7,
             ),
           ),
         ),
