@@ -1,3 +1,4 @@
+import 'package:app_pelada_plus/app/core/design_system/tokens/paddings.token.dart';
 import 'package:flutter/material.dart';
 
 import '../tokens/colors.token.dart';
@@ -18,21 +19,24 @@ class ChoiceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: action,
-      child: Container(
-        height: MediaQuery.of(context).size.height / 16,
-        width: MediaQuery.of(context).size.width / 2.8,
-        decoration: BoxDecoration(
-          gradient: isSelected ? TokenColors.gradient : null,
-          color: isSelected ? null : TokenColors.kBlack1,
-          borderRadius: BorderRadius.circular(26),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(
-                color: TokenColors.kWhite,
-                fontSize: 18,
-                fontWeight: FontWeight.w600),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: TokenPaddings.lg),
+        child: Container(
+          height: MediaQuery.of(context).size.height / 16,
+          width: MediaQuery.of(context).size.width / 2.8,
+          decoration: BoxDecoration(
+            gradient: isSelected ? TokenColors.gradient : null,
+            color: isSelected ? null : TokenColors.kBlack1,
+            borderRadius: BorderRadius.circular(26),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: const TextStyle(
+                  color: TokenColors.kWhite,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600),
+            ),
           ),
         ),
       ),
