@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../tokens/colors.token.dart';
 
-class InputTextWidget extends StatelessWidget {
+class InputTextWidget extends StatefulWidget {
   const InputTextWidget({
     Key? key,
-    required this.controller,
     required this.hint,
-    this.onTap,
+    this.onChange,
   }) : super(key: key);
 
-  final TextEditingController controller;
   final String hint;
-  final VoidCallback? onTap;
+  final Function? onChange;
 
+  @override
+  State<InputTextWidget> createState() => _InputTextWidgetState();
+}
+
+class _InputTextWidgetState extends State<InputTextWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,10 +25,18 @@ class InputTextWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextFormField(
-        controller: controller,
         cursorColor: TokenColors.kBlack2,
-        keyboardType: TextInputType.name,
-        onTap: onTap,
+        keyboardType: TextInputType.text,
+        // inputFormatters: [
+        //   FilteringTextInputFormatter.allow(RegExp('')),
+        // ],
+        onChanged: (String input) {
+          setState(() {
+            if (widget.onChange != null) {
+              widget.onChange!(input);
+            }
+          });
+        },
         style: const TextStyle(
           color: TokenColors.kGrey2,
           fontWeight: FontWeight.w600,
@@ -33,7 +44,7 @@ class InputTextWidget extends StatelessWidget {
         ),
         decoration: InputDecoration(
           focusColor: TokenColors.kBlack1,
-          hintText: hint,
+          hintText: widget.hint,
           hintStyle: const TextStyle(
             color: TokenColors.kGrey2,
             fontWeight: FontWeight.w600,

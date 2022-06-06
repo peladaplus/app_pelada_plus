@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
-import '../tokens/colors.token.dart';
 import '../tokens/paddings.token.dart';
 import '../widgets/button.widget.dart';
-import '../widgets/choice_image.widget.dart';
 import '../widgets/text.widget.dart';
 import '../widgets/text_button.widget.dart';
 
-class RegistrationGroupComponent extends StatefulWidget {
-  const RegistrationGroupComponent({Key? key}) : super(key: key);
+class RegistrationGroupComponent extends StatelessWidget {
+  const RegistrationGroupComponent({
+    Key? key,
+    required this.widget,
+    required this.textTitle,
+    required this.textSubtitle,
+    required this.titleButton,
+    required this.titleTextButton,
+    required this.actionButton,
+    required this.actionTextButton,
+  }) : super(key: key);
 
-  @override
-  State<RegistrationGroupComponent> createState() =>
-      _RegistrationGroupComponentState();
-}
-
-class _RegistrationGroupComponentState
-    extends State<RegistrationGroupComponent> {
-  late bool isSelected = false;
+  final Widget widget;
+  final String textTitle;
+  final String textSubtitle;
+  final String titleButton;
+  final VoidCallback? actionButton;
+  final String titleTextButton;
+  final VoidCallback actionTextButton;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,6 @@ class _RegistrationGroupComponentState
       child: Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
-        backgroundColor: TokenColors.kBlack2,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.all(TokenPaddings.sm),
@@ -39,34 +44,33 @@ class _RegistrationGroupComponentState
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const SizedBox(height: 25),
-                    const TextWidget.title(text: 'Dê um nome ao seu grupo'),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: TokenPaddings.sm),
-                      child: const TextWidget.subtitle(
-                        text: 'Esse nome será utilizado '
-                            'para se referir ao seu grupo.',
+                      padding: EdgeInsets.only(top: TokenPaddings.md),
+                      child: TextWidget.title(text: textTitle),
+                    ),
+                    Visibility(
+                      visible: textSubtitle.isNotEmpty,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: TokenPaddings.sm),
+                        child: TextWidget.subtitle(text: textSubtitle),
                       ),
                     ),
                   ],
                 ),
-                ChoiceImageWidget(
-                  image: 'soccer3',
-                  isSelected: true,
-                  action: () {},
-                ),
+                widget,
                 Column(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: TokenPaddings.xs),
-                      child: ButtonWidget(
-                        text: 'Continuar',
-                        action: () {},
-                      ),
+                    ButtonWidget(
+                      text: titleButton,
+                      action: actionButton,
                     ),
-                    TextButtonWidget(
-                      text: 'Voltar',
-                      action: () {},
+                    Visibility(
+                      visible: titleTextButton.isNotEmpty,
+                      child: TextButtonWidget(
+                        text: titleTextButton,
+                        action: actionTextButton,
+                      ),
                     ),
                   ],
                 ),

@@ -1,4 +1,9 @@
+import 'package:app_pelada_plus/app/core/enums/frequency.enum.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../../../core/enums/assessment.enum.dart';
+import '../../../../core/enums/days.enum.dart';
+import '../../../../core/enums/modality.enum.dart';
 
 part 'group.entity.g.dart';
 
@@ -9,25 +14,21 @@ class GroupEntity {
     required this.name,
     required this.image,
     required this.frequency,
-    required this.gameType,
-    required this.selfEvaluation,
+    required this.days,
+    required this.modality,
+    required this.assessment,
   });
 
   final int? id;
   final String name;
   final String image;
-  final String frequency;
-  final GameType gameType;
-  final bool selfEvaluation;
+  final Frequency frequency;
+  final List<Day> days;
+  final Modality modality;
+  final Assessment assessment;
 
   factory GroupEntity.fromJson(Map<String, dynamic> json) =>
       _$GroupEntityFromJson(json);
 
   Map<String, dynamic> toJson() => _$GroupEntityToJson(this);
-}
-
-enum GameType {
-  soccer,
-  indoorSoccer,
-  society,
 }
