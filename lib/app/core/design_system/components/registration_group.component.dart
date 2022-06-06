@@ -21,7 +21,7 @@ class RegistrationGroupComponent extends StatelessWidget {
   final String textTitle;
   final String textSubtitle;
   final String titleButton;
-  final VoidCallback actionButton;
+  final VoidCallback? actionButton;
   final String titleTextButton;
   final VoidCallback actionTextButton;
 

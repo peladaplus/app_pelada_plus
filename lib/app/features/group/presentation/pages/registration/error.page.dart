@@ -18,6 +18,6 @@ class RegistrationErrorPage extends StatelessWidget {
         titleTextButton: 'Descartar',
         actionButton: () => Modular.to.pushNamed('/registration_loading'),
         actionTextButton: () =>
-            Modular.to.popAndPushNamed('/registration_name'),
+            Modular.to.popAndPushNamed('/group/registration_name'),
       );
 }

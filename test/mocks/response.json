@@ -1,8 +1,12 @@
 {
-  "id": 1,
-  "name": "Jogo de quinta",
-  "image": "image/society",
-  "frequency": "Semanal / Quinta-feira",
-  "gameType": "society",
-  "selfEvaluation": true
+  "id": null,
+  "name": "Fut na divino",
+  "image": "society0",
+  "frequency": "weekly",
+  "days": [
+    "wednesday",
+    "sunday"
+  ],
+  "modality": "society",
+  "assessment": "moderator"
 }

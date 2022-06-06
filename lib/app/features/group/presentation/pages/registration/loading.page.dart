@@ -23,7 +23,7 @@ class _RegistrationLoadingPageState extends State<RegistrationLoadingPage>
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        Modular.to.pushReplacementNamed('/registration_success');
+        Modular.to.pushReplacementNamed('/group/registration_success');
       },
     );
   }
@@ -38,12 +38,12 @@ class _RegistrationLoadingPageState extends State<RegistrationLoadingPage>
   Widget build(BuildContext context) {
     _animationController.forward();
     return const Scaffold(
-        body: Center(
-          child: AnimationWidget(
-            name: 'loading',
-            repeat: true,
-          ),
+      body: Center(
+        child: AnimationWidget(
+          name: 'loading',
+          repeat: true,
         ),
-      );
+      ),
+    );
   }
 }

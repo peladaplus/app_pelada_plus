@@ -9,7 +9,7 @@ import 'app_widget.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: kReleaseMode,
+      enabled: !kReleaseMode,
       builder: (context) => ModularApp(
         module: AppModule(),
         child: const AppWidget(),
