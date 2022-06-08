@@ -30,6 +30,20 @@ class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
     Day.sunday: false,
   };
 
+  void _setDays() {
+    buttonListFirstColumn.forEach((key, value) {
+      if (value == true) {
+        store.days.add(key);
+      }
+    });
+
+    buttonListSecondColumn.forEach((key, value) {
+      if (value == true) {
+        store.days.add(key);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) => RegistrationGroupComponent(
         widget: Row(
@@ -45,11 +59,6 @@ class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
                       setState(() {
                         buttonListFirstColumn.update(
                             entry.key, (value) => !value);
-                        if (store.days.contains(entry.key)) {
-                          store.days.remove(entry.key);
-                        } else {
-                          store.days.add(entry.key);
-                        }
                       });
                     });
               }).toList(),
@@ -65,7 +74,6 @@ class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
                       setState(() {
                         buttonListSecondColumn.update(
                             entry.key, (value) => !value);
-                        store.days.add(entry.key);
                       });
                     });
               }).toList(),
@@ -79,7 +87,10 @@ class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
         actionButton: !buttonListFirstColumn.containsValue(true) &&
                 !buttonListSecondColumn.containsValue(true)
             ? null
-            : () => Modular.to.pushNamed('/group/registration_evaluation'),
+            : () {
+                _setDays();
+                Modular.to.pushNamed('/group/registration_evaluation');
+              },
         actionTextButton: () => Modular.to.pop(),
       );
 }
