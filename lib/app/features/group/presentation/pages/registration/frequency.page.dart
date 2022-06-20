@@ -1,10 +1,10 @@
-import 'package:app_pelada_plus/app/core/enums/frequency.enum.dart';
-import 'package:app_pelada_plus/app/features/group/presentation/stores/registration.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/design_system/components/registration_group.component.dart';
 import '../../../../../core/design_system/widgets/choice_button.widget.dart';
+import '../../../../../core/enums/frequency.enum.dart';
+import '../../stores/registration.store.dart';
 
 class RegistrationFrequencyPage extends StatefulWidget {
   const RegistrationFrequencyPage({Key? key}) : super(key: key);
@@ -14,8 +14,9 @@ class RegistrationFrequencyPage extends StatefulWidget {
       _RegistrationFrequencyPageState();
 }
 
-class _RegistrationFrequencyPageState
-    extends ModularState<RegistrationFrequencyPage, RegistrationStore> {
+class _RegistrationFrequencyPageState extends State<RegistrationFrequencyPage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   final Map<Frequency, bool> buttonList = <Frequency, bool>{
     Frequency.monthly: false,
     Frequency.biweekly: false,

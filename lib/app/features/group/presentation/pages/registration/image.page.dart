@@ -15,8 +15,9 @@ class RegistrationImagePage extends StatefulWidget {
   State<RegistrationImagePage> createState() => _RegistrationImagePageState();
 }
 
-class _RegistrationImagePageState
-    extends ModularState<RegistrationImagePage, RegistrationStore> {
+class _RegistrationImagePageState extends State<RegistrationImagePage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   late List<bool> imageStatusList = [false, false, false];
 
   @override

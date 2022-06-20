@@ -13,8 +13,9 @@ class RegistrationNamePage extends StatefulWidget {
   State<RegistrationNamePage> createState() => _RegistrationNamePageState();
 }
 
-class _RegistrationNamePageState
-    extends ModularState<RegistrationNamePage, RegistrationStore> {
+class _RegistrationNamePageState extends State<RegistrationNamePage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   @override
   Widget build(BuildContext context) {
     return Observer(

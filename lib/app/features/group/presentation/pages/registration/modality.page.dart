@@ -14,8 +14,9 @@ class RegistrationModalityPage extends StatefulWidget {
       _RegistrationModalityPageState();
 }
 
-class _RegistrationModalityPageState
-    extends ModularState<RegistrationModalityPage, RegistrationStore> {
+class _RegistrationModalityPageState extends State<RegistrationModalityPage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   final Map<Modality, bool> buttonList = <Modality, bool>{
     Modality.soccer: false,
     Modality.indoorSoccer: false,

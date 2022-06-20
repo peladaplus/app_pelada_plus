@@ -1,20 +1,20 @@
-import 'package:app_pelada_plus/app/core/enums/assessment.enum.dart';
-import 'package:app_pelada_plus/app/core/enums/frequency.enum.dart';
-import 'package:app_pelada_plus/app/core/enums/modality.enum.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../core/enums/assessment.enum.dart';
 import '../../../../core/enums/days.enum.dart';
+import '../../../../core/enums/frequency.enum.dart';
+import '../../../../core/enums/modality.enum.dart';
 import '../../domain/entities/group.entity.dart';
 import '../../domain/usecases/create_group.usecase.dart';
 
 part 'registration.store.g.dart';
 
-class RegistrationStore = _RegistrationStore with _$RegistrationStore;
+class RegistrationStore = RegistrationStoreBase with _$RegistrationStore;
 
-abstract class _RegistrationStore with Store {
+abstract class RegistrationStoreBase with Store {
   final CreateGroupUseCase _createGroupUseCase;
 
-  _RegistrationStore(this._createGroupUseCase);
+  RegistrationStoreBase(this._createGroupUseCase);
 
   @observable
   late String name = '';

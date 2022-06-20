@@ -14,8 +14,9 @@ class RegistrationDaysPage extends StatefulWidget {
   State<RegistrationDaysPage> createState() => _RegistrationDaysPageState();
 }
 
-class _RegistrationDaysPageState
-    extends ModularState<RegistrationDaysPage, RegistrationStore> {
+class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   final Map<Day, bool> buttonListFirstColumn = <Day, bool>{
     Day.monday: false,
     Day.tuesday: false,

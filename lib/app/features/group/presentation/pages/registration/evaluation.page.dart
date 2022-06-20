@@ -1,9 +1,9 @@
-import 'package:app_pelada_plus/app/core/enums/assessment.enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/design_system/components/registration_group.component.dart';
 import '../../../../../core/design_system/widgets/choice_button.widget.dart';
+import '../../../../../core/enums/assessment.enum.dart';
 import '../../stores/registration.store.dart';
 
 class RegistrationEvaluationPage extends StatefulWidget {
@@ -15,7 +15,9 @@ class RegistrationEvaluationPage extends StatefulWidget {
 }
 
 class _RegistrationEvaluationPageState
-    extends ModularState<RegistrationEvaluationPage, RegistrationStore> {
+    extends State<RegistrationEvaluationPage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   final Map<Assessment, bool> buttonList = <Assessment, bool>{
     Assessment.selfEvaluation: false,
     Assessment.moderator: false,
