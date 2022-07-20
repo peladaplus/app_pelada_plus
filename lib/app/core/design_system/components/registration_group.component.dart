@@ -72,6 +72,12 @@ class RegistrationGroupComponent extends StatelessWidget {
                         action: actionTextButton,
                       ),
                     ),
+                    Visibility(
+                      visible: !titleTextButton.isNotEmpty,
+                      child: SizedBox(
+                        height: TokenPaddings.xxs,
+                      ),
+                    ),
                   ],
                 ),
               ],
