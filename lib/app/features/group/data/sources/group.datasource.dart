@@ -12,7 +12,6 @@ class GroupDataSource {
 
   Future<Either<DataSourceException, GroupEntity>> save(
       GroupEntity group) async {
-    print(group.toJson());
     try {
       final response =
           await _dio.post('http://localhost:8080/group', data: group.toJson());

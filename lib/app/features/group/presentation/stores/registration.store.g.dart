@@ -8,9 +8,9 @@ part of 'registration.store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
-mixin _$RegistrationStore on _RegistrationStore, Store {
+mixin _$RegistrationStore on RegistrationStoreBase, Store {
   late final _$nameAtom =
-      Atom(name: '_RegistrationStore.name', context: context);
+      Atom(name: 'RegistrationStoreBase.name', context: context);
 
   @override
   String get name {
@@ -26,7 +26,7 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   }
 
   late final _$modalityAtom =
-      Atom(name: '_RegistrationStore.modality', context: context);
+      Atom(name: 'RegistrationStoreBase.modality', context: context);
 
   @override
   Modality get modality {
@@ -42,7 +42,7 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   }
 
   late final _$imageAtom =
-      Atom(name: '_RegistrationStore.image', context: context);
+      Atom(name: 'RegistrationStoreBase.image', context: context);
 
   @override
   String get image {
@@ -58,7 +58,7 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   }
 
   late final _$frequencyAtom =
-      Atom(name: '_RegistrationStore.frequency', context: context);
+      Atom(name: 'RegistrationStoreBase.frequency', context: context);
 
   @override
   Frequency get frequency {
@@ -74,7 +74,7 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   }
 
   late final _$daysAtom =
-      Atom(name: '_RegistrationStore.days', context: context);
+      Atom(name: 'RegistrationStoreBase.days', context: context);
 
   @override
   List<Day> get days {
@@ -90,7 +90,7 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   }
 
   late final _$assessmentAtom =
-      Atom(name: '_RegistrationStore.assessment', context: context);
+      Atom(name: 'RegistrationStoreBase.assessment', context: context);
 
   @override
   Assessment get assessment {
@@ -105,83 +105,83 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     });
   }
 
-  late final _$_RegistrationStoreActionController =
-      ActionController(name: '_RegistrationStore', context: context);
+  late final _$RegistrationStoreBaseActionController =
+      ActionController(name: 'RegistrationStoreBase', context: context);
 
   @override
   void setName(String value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setName');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setName');
     try {
       return super.setName(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setModality(Modality value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setModality');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setModality');
     try {
       return super.setModality(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setImage(String value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setImage');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setImage');
     try {
       return super.setImage(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setFrequency(Frequency value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setFrequency');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setFrequency');
     try {
       return super.setFrequency(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setDays(List<Day> value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setDays');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setDays');
     try {
       return super.setDays(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setAssessment(Assessment value) {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.setAssessment');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.setAssessment');
     try {
       return super.setAssessment(value);
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void register() {
-    final _$actionInfo = _$_RegistrationStoreActionController.startAction(
-        name: '_RegistrationStore.register');
+    final _$actionInfo = _$RegistrationStoreBaseActionController.startAction(
+        name: 'RegistrationStoreBase.register');
     try {
       return super.register();
     } finally {
-      _$_RegistrationStoreActionController.endAction(_$actionInfo);
+      _$RegistrationStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 

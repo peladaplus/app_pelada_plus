@@ -14,8 +14,9 @@ class RegistrationDaysPage extends StatefulWidget {
   State<RegistrationDaysPage> createState() => _RegistrationDaysPageState();
 }
 
-class _RegistrationDaysPageState
-    extends ModularState<RegistrationDaysPage, RegistrationStore> {
+class _RegistrationDaysPageState extends State<RegistrationDaysPage> {
+  final RegistrationStore store = Modular.get<RegistrationStore>();
+
   final Map<Day, bool> buttonListFirstColumn = <Day, bool>{
     Day.monday: false,
     Day.tuesday: false,
@@ -28,6 +29,20 @@ class _RegistrationDaysPageState
     Day.saturday: false,
     Day.sunday: false,
   };
+
+  void _setDays() {
+    buttonListFirstColumn.forEach((key, value) {
+      if (value == true) {
+        store.days.add(key);
+      }
+    });
+
+    buttonListSecondColumn.forEach((key, value) {
+      if (value == true) {
+        store.days.add(key);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) => RegistrationGroupComponent(
@@ -44,11 +59,6 @@ class _RegistrationDaysPageState
                       setState(() {
                         buttonListFirstColumn.update(
                             entry.key, (value) => !value);
-                        if (store.days.contains(entry.key)) {
-                          store.days.remove(entry.key);
-                        } else {
-                          store.days.add(entry.key);
-                        }
                       });
                     });
               }).toList(),
@@ -64,7 +74,6 @@ class _RegistrationDaysPageState
                       setState(() {
                         buttonListSecondColumn.update(
                             entry.key, (value) => !value);
-                        store.days.add(entry.key);
                       });
                     });
               }).toList(),
@@ -78,7 +87,10 @@ class _RegistrationDaysPageState
         actionButton: !buttonListFirstColumn.containsValue(true) &&
                 !buttonListSecondColumn.containsValue(true)
             ? null
-            : () => Modular.to.pushNamed('/group/registration_evaluation'),
+            : () {
+                _setDays();
+                Modular.to.pushNamed('/group/registration_evaluation');
+              },
         actionTextButton: () => Modular.to.pop(),
       );
 }
