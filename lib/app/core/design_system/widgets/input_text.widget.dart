@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../tokens/colors.token.dart';
@@ -28,9 +29,11 @@ class _InputTextWidgetState extends State<InputTextWidget> {
       child: TextFormField(
         cursorColor: TokenColors.kBlack2,
         keyboardType: TextInputType.text,
-        // inputFormatters: [
-        //   FilteringTextInputFormatter.allow(RegExp('')),
-        // ],
+        inputFormatters: [
+          FilteringTextInputFormatter.deny(
+            RegExp(r'^\s$'),
+          ),
+        ],
         onChanged: (String input) {
           setState(() {
             if (widget.onChange != null) {
