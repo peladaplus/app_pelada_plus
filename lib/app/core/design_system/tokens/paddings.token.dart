@@ -1,9 +1,11 @@
+import 'package:sizer/sizer.dart';
+
 class TokenPaddings {
-  static double xxl = 48.0;
-  static double xl = 40.0;
-  static double lg = 32.0;
-  static double md = 24.0;
-  static double sm = 16.0;
-  static double xs = 8.0;
-  static double xxs = 4.0;
+  static double xxl = 7.h;
+  static double xl = 6.h;
+  static double lg = 5.h;
+  static double md = 4.h;
+  static double sm = 3.h;
+  static double xs = 2.h;
+  static double xxs = 1.h;
 }

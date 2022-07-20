@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../tokens/colors.token.dart';
 
@@ -34,10 +35,10 @@ class ButtonWidget extends StatelessWidget {
         onPressed: action,
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             color: TokenColors.kWhite,
             fontWeight: FontWeight.w600,
-            fontSize: 18,
+            fontSize: 14.sp,
           ),
         ),
       ),

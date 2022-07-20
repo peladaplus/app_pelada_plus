@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../tokens/colors.token.dart';
 
@@ -7,7 +8,7 @@ class TextWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.color = TokenColors.kWhite,
-    this.fontSize = 36,
+    this.fontSize = 23,
     this.fontWeight = FontWeight.w600,
   }) : super(key: key);
 
@@ -15,7 +16,7 @@ class TextWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.color = TokenColors.kGrey2,
-    this.fontSize = 16,
+    this.fontSize = 14,
     this.fontWeight = FontWeight.w400,
   }) : super(key: key);
 
@@ -31,7 +32,7 @@ class TextWidget extends StatelessWidget {
       textAlign: TextAlign.left,
       style: TextStyle(
         color: color,
-        fontSize: fontSize,
+        fontSize: fontSize.sp,
         fontWeight: fontWeight,
       ),
     );

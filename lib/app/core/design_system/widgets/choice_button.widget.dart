@@ -1,7 +1,8 @@
-import 'package:app_pelada_plus/app/core/design_system/tokens/paddings.token.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../tokens/colors.token.dart';
+import '../tokens/paddings.token.dart';
 
 class ChoiceButton extends StatelessWidget {
   const ChoiceButton({
@@ -22,8 +23,8 @@ class ChoiceButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(bottom: TokenPaddings.lg),
         child: Container(
-          height: MediaQuery.of(context).size.height / 16,
-          width: MediaQuery.of(context).size.width / 2.8,
+          height: 6.h,
+          width: 35.w,
           decoration: BoxDecoration(
             gradient: isSelected ? TokenColors.gradient : null,
             color: isSelected ? null : TokenColors.kBlack1,
@@ -32,9 +33,9 @@ class ChoiceButton extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                   color: TokenColors.kWhite,
-                  fontSize: 18,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w600),
             ),
           ),

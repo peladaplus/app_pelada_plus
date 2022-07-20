@@ -36,7 +36,7 @@ class RegistrationGroupComponent extends StatelessWidget {
         extendBody: true,
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(TokenPaddings.sm),
+            padding: EdgeInsets.all(TokenPaddings.xs),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +52,7 @@ class RegistrationGroupComponent extends StatelessWidget {
                       visible: textSubtitle.isNotEmpty,
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(vertical: TokenPaddings.sm),
+                            EdgeInsets.symmetric(vertical: TokenPaddings.xs),
                         child: TextWidget.subtitle(text: textSubtitle),
                       ),
                     ),

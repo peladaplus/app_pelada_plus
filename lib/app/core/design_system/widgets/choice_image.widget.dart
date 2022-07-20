@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../tokens/paddings.token.dart';
 
@@ -24,7 +25,7 @@ class ChoiceImageWidget extends StatelessWidget {
           decoration: isSelected
               ? BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.green, width: 3),
+                  border: Border.all(color: Colors.orange, width: 3),
                 )
               : null,
           child: ClipRRect(
@@ -33,8 +34,8 @@ class ChoiceImageWidget extends StatelessWidget {
               'assets/images/$image.png',
               filterQuality: FilterQuality.high,
               fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width / 2.7,
+              width: 100.w,
+              height: 20.h,
             ),
           ),
         ),

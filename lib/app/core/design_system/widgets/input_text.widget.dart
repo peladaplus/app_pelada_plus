@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../tokens/colors.token.dart';
 
@@ -37,18 +38,18 @@ class _InputTextWidgetState extends State<InputTextWidget> {
             }
           });
         },
-        style: const TextStyle(
+        style: TextStyle(
           color: TokenColors.kGrey2,
           fontWeight: FontWeight.w600,
-          fontSize: 20,
+          fontSize: 15.sp,
         ),
         decoration: InputDecoration(
           focusColor: TokenColors.kBlack1,
           hintText: widget.hint,
-          hintStyle: const TextStyle(
+          hintStyle: TextStyle(
             color: TokenColors.kGrey2,
             fontWeight: FontWeight.w600,
-            fontSize: 20,
+            fontSize: 15.sp,
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: TokenColors.kBlack2),
