@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../domain/entities/group.entity.dart';
-import '../exceptions/datasource.exception.dart';
+import '../../../../core/network/exceptions/datasource.exception.dart';
 
 class GroupDataSource {
   final Dio _dio;
@@ -19,13 +19,12 @@ class GroupDataSource {
         return Right(GroupEntity.fromJson(response.data));
       } else {
         return Left(
-          RequestError(
-              statusCode: response.statusCode!, message: response.data),
+          RequestError(response.data, statusCode: response.statusCode!),
         );
       }
     } on DioError catch (error) {
       debugPrint(error.message);
-      return Left(ApiError(message: error.error.toString()));
+      return Left(ApiError(error.error.toString()));
     }
   }
 
@@ -38,13 +37,12 @@ class GroupDataSource {
             .toList());
       } else {
         return Left(
-          RequestError(
-              statusCode: response.statusCode!, message: response.data),
+          RequestError(response.data, statusCode: response.statusCode!),
         );
       }
     } on DioError catch (error) {
       debugPrint(error.message);
-      return Left(ApiError(message: error.error.toString()));
+      return Left(ApiError(error.error.toString()));
     }
   }
 
@@ -55,13 +53,12 @@ class GroupDataSource {
         return Right(GroupEntity.fromJson(response.data));
       } else {
         return Left(
-          RequestError(
-              statusCode: response.statusCode!, message: response.data),
+          RequestError(response.data, statusCode: response.statusCode!),
         );
       }
     } on DioError catch (error) {
       debugPrint(error.message);
-      return Left(ApiError(message: error.error.toString()));
+      return Left(ApiError(error.error.toString()));
     }
   }
 
@@ -72,13 +69,12 @@ class GroupDataSource {
         return Right('Group with $id deleted successfully');
       } else {
         return Left(
-          RequestError(
-              statusCode: response.statusCode!, message: response.data),
+          RequestError(response.data, statusCode: response.statusCode!),
         );
       }
     } on DioError catch (error) {
       debugPrint(error.message);
-      return Left(ApiError(message: error.error.toString()));
+      return Left(ApiError(error.error.toString()));
     }
   }
 
@@ -90,13 +86,12 @@ class GroupDataSource {
         return Right('Group with $id updated successfully');
       } else {
         return Left(
-          RequestError(
-              statusCode: response.statusCode!, message: response.data),
+          RequestError(response.data, statusCode: response.statusCode!),
         );
       }
     } on DioError catch (error) {
       debugPrint(error.message);
-      return Left(ApiError(message: error.error.toString()));
+      return Left(ApiError(error.error.toString()));
     }
   }
 }

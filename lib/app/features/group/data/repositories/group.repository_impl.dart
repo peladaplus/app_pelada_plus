@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/group.entity.dart';
 import '../../domain/repositories/group.repository.dart';
-import '../exceptions/datasource.exception.dart';
+import '../../../../core/network/exceptions/datasource.exception.dart';
 import '../sources/group.datasource.dart';
 
 class GroupRepository implements IGroupRepository {

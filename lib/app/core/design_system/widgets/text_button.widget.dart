@@ -8,10 +8,12 @@ class TextButtonWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.action,
+    this.color,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? action;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class TextButtonWidget extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: TokenColors.kWhite,
+          color: color ?? TokenColors.kWhite,
           fontWeight: FontWeight.w400,
           fontSize: 14.sp,
         ),

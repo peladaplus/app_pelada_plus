@@ -8,15 +8,17 @@ class ButtonWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.action,
+    this.width,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? action;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: width ?? MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width / 6,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
@@ -33,6 +35,7 @@ class ButtonWidget extends StatelessWidget {
               : MaterialStateProperty.all<Color>(TokenColors.kBlack1),
         ),
         onPressed: action,
+        
         child: Text(
           text,
           style: TextStyle(
