@@ -23,10 +23,10 @@ Map<String, dynamic> _$GroupEntityToJson(GroupEntity instance) =>
       'id': instance.id,
       'name': instance.name,
       'image': instance.image,
-      'frequency': _$FrequencyEnumMap[instance.frequency],
-      'days': instance.days.map((e) => _$DayEnumMap[e]).toList(),
-      'modality': _$ModalityEnumMap[instance.modality],
-      'assessment': _$AssessmentEnumMap[instance.assessment],
+      'frequency': _$FrequencyEnumMap[instance.frequency]!,
+      'days': instance.days.map((e) => _$DayEnumMap[e]!).toList(),
+      'modality': _$ModalityEnumMap[instance.modality]!,
+      'assessment': _$AssessmentEnumMap[instance.assessment]!,
     };
 
 const _$FrequencyEnumMap = {

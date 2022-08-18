@@ -34,58 +34,40 @@ class GroupModule extends Module {
         ChildRoute(
           '/registration_name',
           child: (_, __) => const RegistrationNamePage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_modality',
           child: (_, __) => const RegistrationModalityPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_image',
           child: (_, args) => RegistrationImagePage(
             modality: args.queryParams['modality'] as String,
           ),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_frequency',
           child: (_, __) => const RegistrationFrequencyPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_days',
           child: (_, __) => const RegistrationDaysPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_evaluation',
           child: (_, __) => const RegistrationEvaluationPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_loading',
           child: (_, __) => const RegistrationLoadingPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_success',
           child: (_, __) => const RegistrationSuccessPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
         ChildRoute(
           '/registration_error',
           child: (_, __) => const RegistrationErrorPage(),
-          transition: TransitionType.downToUp,
-          duration: const Duration(milliseconds: 400),
         ),
       ];
 }

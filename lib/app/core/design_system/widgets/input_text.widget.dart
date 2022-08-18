@@ -8,11 +8,25 @@ class InputTextWidget extends StatefulWidget {
   const InputTextWidget({
     Key? key,
     required this.hint,
+    this.controller,
+    this.hintColor,
+    this.backgroundColor,
     this.onChange,
+    this.obscureText,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.validator,
   }) : super(key: key);
 
   final String hint;
+  final TextEditingController? controller;
+  final Color? hintColor;
   final Function? onChange;
+  final Color? backgroundColor;
+  final bool? obscureText;
+  final Icon? prefixIcon;
+  final Icon? suffixIcon;
+  final String? Function(String?)? validator;
 
   @override
   State<InputTextWidget> createState() => _InputTextWidgetState();
@@ -23,10 +37,13 @@ class _InputTextWidgetState extends State<InputTextWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: TokenColors.kBlack1,
+        color: widget.backgroundColor ?? TokenColors.kBlack1,
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextFormField(
+        controller: widget.controller,
+        validator: widget.validator,
+        obscureText: widget.obscureText ?? false,
         cursorColor: TokenColors.kBlack2,
         keyboardType: TextInputType.text,
         inputFormatters: [
@@ -44,15 +61,19 @@ class _InputTextWidgetState extends State<InputTextWidget> {
         style: TextStyle(
           color: TokenColors.kGrey2,
           fontWeight: FontWeight.w600,
-          fontSize: 15.sp,
+          fontSize: 12.sp,
         ),
         decoration: InputDecoration(
+          prefixIcon: widget.prefixIcon,
+          prefixIconColor: widget.hintColor ?? TokenColors.kGrey2,
+          suffixIcon: widget.suffixIcon,
+          suffixIconColor: widget.hintColor ?? TokenColors.kGrey2,
           focusColor: TokenColors.kBlack1,
           hintText: widget.hint,
           hintStyle: TextStyle(
-            color: TokenColors.kGrey2,
+            color: widget.hintColor ?? TokenColors.kGrey2,
             fontWeight: FontWeight.w600,
-            fontSize: 15.sp,
+            fontSize: 12.sp,
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: TokenColors.kBlack2),
