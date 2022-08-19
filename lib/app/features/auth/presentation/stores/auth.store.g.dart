@@ -111,6 +111,17 @@ mixin _$AuthStore on AuthStoreBase, Store {
   }
 
   @override
+  User? getUser() {
+    final _$actionInfo = _$AuthStoreBaseActionController.startAction(
+        name: 'AuthStoreBase.getUser');
+    try {
+      return super.getUser();
+    } finally {
+      _$AuthStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 user: ${user},
