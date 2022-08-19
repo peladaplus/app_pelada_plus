@@ -27,7 +27,6 @@ class _BottomSheetComponentState extends State<BottomSheetComponent> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -140,12 +139,14 @@ class _BottomSheetComponentState extends State<BottomSheetComponent> {
       Modular.to.pushNamed('/group/registration_name');
     }
     if (store.statusScreen == StatusScreen.error) {
-      scaffoldKey.currentState!
-        .showSnackBar(
+      ScaffoldMessenger.of(context)
+        ..removeCurrentSnackBar()
+        ..showSnackBar(
           SnackBar(
-              content: Text(
-                store.exception!.message,
-              )),
+            backgroundColor: Colors.red,
+            behavior: SnackBarBehavior.floating,
+            content: Text(store.exception!.message),
+          ),
         );
     }
   }
