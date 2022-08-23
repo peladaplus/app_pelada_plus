@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../platforms/platform_widget.dart';
 import '../tokens/colors.token.dart';
 
-class TextButtonWidget extends StatelessWidget {
+class TextButtonWidget extends PlatformWidget {
   const TextButtonWidget({
     Key? key,
     required this.text,
@@ -16,16 +18,28 @@ class TextButtonWidget extends StatelessWidget {
   final Color? color;
 
   @override
-  Widget build(BuildContext context) {
+  Widget createAndroidWidget(BuildContext context) {
     return TextButton(
       onPressed: action,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: color ?? TokenColors.kWhite,
-          fontWeight: FontWeight.w400,
-          fontSize: 14.sp,
-        ),
+      child: _setText(),
+    );
+  }
+
+  @override
+  Widget createIosWidget(BuildContext context) {
+    return CupertinoButton(
+      onPressed: action,
+      child: _setText(),
+    );
+  }
+
+  Text _setText() {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color ?? TokenColors.kWhite,
+        fontWeight: FontWeight.w400,
+        fontSize: 14.sp,
       ),
     );
   }

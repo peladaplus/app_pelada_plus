@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../../../core/design_system/tokens/colors.token.dart';
 import '../../../../core/design_system/tokens/paddings.token.dart';
 import '../../../../core/design_system/widgets/button.widget.dart';
+import '../../../../core/design_system/widgets/icon_visibility.widget.dart';
 import '../../../../core/design_system/widgets/input_text.widget.dart';
 import '../../../../core/design_system/widgets/text.widget.dart';
 import '../../../../core/design_system/widgets/text_button.widget.dart';
@@ -24,6 +25,7 @@ class BottomSheetComponent extends StatefulWidget {
 
 class _BottomSheetComponentState extends State<BottomSheetComponent> {
   late AuthStore store;
+  late bool isObscure = true;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -84,6 +86,15 @@ class _BottomSheetComponentState extends State<BottomSheetComponent> {
                     hint: 'Senha',
                     backgroundColor: TokenColors.kBlack2,
                     controller: passwordController,
+                    obscureText: isObscure,
+                    suffixIcon: IconButton(
+                      icon: IconVisibilityWidget(
+                        isObscure: isObscure,
+                      ),
+                      onPressed: () => setState(() {
+                        isObscure = !isObscure;
+                      }),
+                    ),
                   ),
                 ],
               ),
@@ -92,6 +103,7 @@ class _BottomSheetComponentState extends State<BottomSheetComponent> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   ButtonWidget(
+                    isLoading: store.statusScreen == StatusScreen.loading,
                     text: store.isLogin ? 'Entrar' : 'Cadastrar',
                     action: store.isLogin
                         ? () async {

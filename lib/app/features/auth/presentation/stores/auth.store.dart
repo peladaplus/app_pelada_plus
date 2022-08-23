@@ -99,7 +99,6 @@ abstract class AuthStoreBase with Store {
     );
   }
 
-
   @action
   User? getUser() {
     return _getUserUseCase();

@@ -24,8 +24,8 @@ class InputTextWidget extends StatefulWidget {
   final Function? onChange;
   final Color? backgroundColor;
   final bool? obscureText;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
+  final IconButton? prefixIcon;
+  final IconButton? suffixIcon;
   final String? Function(String?)? validator;
 
   @override
@@ -44,7 +44,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
         controller: widget.controller,
         validator: widget.validator,
         obscureText: widget.obscureText ?? false,
-        cursorColor: TokenColors.kBlack2,
+        cursorColor: TokenColors.kBlue,
         keyboardType: TextInputType.text,
         inputFormatters: [
           FilteringTextInputFormatter.deny(
